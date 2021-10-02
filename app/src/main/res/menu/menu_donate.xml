@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_settings"
+        android:title="Setting" />
+    <item
+        android:id="@+id/menuReport"
+        android:orderInCategory="100"
+        app:showAsAction="never"
+        android:title="@string/menuReport" />
+    <item
+        android:id="@+id/menuDonate"
+        android:orderInCategory="100"
+        app:showAsAction="never"
+        android:title="@string/menuDonate" />
+</menu>
