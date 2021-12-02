@@ -55,6 +55,11 @@ public class Donate extends Base {
         amountPicker.setMaxValue(1000);
         progressBar.setMax(10000);
         amountTotal.setText("Total so Far: $0");
+
+        progressBar.setProgress(app.totalDonated);
+        amountTotal.setText("Total so Far: $" + app.totalDonated);
+
+
     }
 
     @Override
@@ -71,6 +76,9 @@ public class Donate extends Base {
             case R.id.menuReport:
                 startActivity(new Intent(this, Report.class));
                 break;
+            case R.id.menReset:
+                reset();
+                break;
         }
         return super.onOptionsItemSelected(item);
     }
@@ -84,13 +92,18 @@ public class Donate extends Base {
             donatedAmount = Integer.parseInt(text);
         }
         if (donatedAmount > 0) {
-            if (newDonation(new Donation(donatedAmount, method)) == false) {
-//                totalDonated += donatedAmount;
-                progressBar.setProgress(Base.totalDonated);
-                String totalDonatedStr = "$" + Base.totalDonated;
-                amountTotal.setText("Total so Far: " + totalDonatedStr);
+            app.newDonation(new Donation(donatedAmount, method));
+            progressBar.setProgress(app.totalDonated);
+            String totalDonatedStr = "Total so Far: $" + app.totalDonated;
+            amountTotal.setText(totalDonatedStr);
             }
         }
+
+    public void reset() {
+        app.dbManager.reset();
+        app.totalDonated = 0;
+        progressBar.setProgress(0);
+        amountTotal.setText("Total so Far: $" + app.totalDonated);
     }
     }
 

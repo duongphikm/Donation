@@ -30,9 +30,10 @@ public class DonationAdapter extends ArrayAdapter<Donation> {
         Donation donation = donations.get(position);
         TextView amountView = (TextView) view.findViewById(R.id.row_amount);
         TextView methodView = (TextView) view.findViewById(R.id.row_method);
-        amountView.setText("$" + donation.anmount);
+        amountView.setText("$" + donation.amount);
         methodView.setText(donation.method);
         return view;
+
     }
     public int getCount() {
         return donations.size();

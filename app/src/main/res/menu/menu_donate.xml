@@ -2,9 +2,6 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/action_settings"
-        android:title="Setting" />
-    <item
         android:id="@+id/menuReport"
         android:orderInCategory="100"
         app:showAsAction="never"
@@ -14,4 +11,10 @@
         android:orderInCategory="100"
         app:showAsAction="never"
         android:title="@string/menuDonate" />
+    <item
+        android:id="@+id/menReset"
+        android:orderInCategory="100"
+        app:showAsAction="never"
+        android:title="Reset">
+    </item>
 </menu>
